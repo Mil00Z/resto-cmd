@@ -1,0 +1,251 @@
+:root {
+  --PRIMARY: #282c34;
+  --SECONDARY: #fb7061;
+
+  --button-spacing:10px;
+}
+
+body {
+  font-size: 1em;
+  min-height: 100vh;
+  background: rgb(255, 153, 51);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 153, 51, 1) 39%,
+    rgba(255, 66, 27, 1) 89%
+  );
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  min-height: 100vh;
+  gap:2rem;
+}
+
+#selects{
+  display: flex;
+}
+
+#header, #owner{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block:.45rem;
+  color: black;
+  background-color: white;
+  font-size: 1.5rem;
+}
+
+.Aside {
+  --radius: 65px;
+  min-width:80px;
+  height:80px;
+  position: fixed;
+  top:0;
+  right:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:1rem;
+  border-radius: var(--radius) 0 0 var(--radius);
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.096);
+}
+.Aside > p {
+  text-align: center;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.CartNavBar {
+  display: flex;
+  flex-direction: column;
+  row-gap:var(--button-spacing);
+}
+
+#addForm button{
+  margin:var(--button-spacing)
+}
+
+
+.ProductCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+  background-color: rgba(255, 255, 255, 0.128);
+  font-weight: 800;
+  color: white;
+  font-size: 24pt;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.ProductCard:hover {
+  background-color: rgba(255, 255, 255, 0.328);
+}
+.ProductCard .count {
+
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: rgba(255, 255, 255, 0.128);
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.ProductCard img {
+  padding: 32px;
+  transition: all 0.3s ease-in-out;
+}
+
+.ProductCard:hover img {
+  filter: brightness(60%);
+}
+
+.ProductUnavailable {
+  position: absolute;
+  background-color: red;
+  color: white;
+  padding: 8px;
+  transform: rotate(-25deg);
+  bottom: 64px;
+}
+
+.Menu {
+  width: 80%;
+  display: flex;
+  min-height: 70vh;
+}
+
+.Selection {
+  /* width: calc(20% - 16px); */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.096);
+  color: white;
+  padding: 8px;
+}
+
+.SelectedProduct {
+  font-size: 18pt;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px;
+}
+
+.SelectedProduct::before {
+  content: "✅ ";
+}
+
+.TotalCommand {
+  width: 100%;
+  font-weight: 800;
+  font-size: 32pt;
+  color: white;
+}
+
+.Voucher {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+}
+#voucher {
+  margin-top:var(--button-spacing);
+  color:white;
+  background: #646cff;
+}
+
+#voucher:disabled {
+  background:crimson;
+  cursor:not-allowed;
+  border-color:currentColor;
+}
+
+.Voucher button {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: var(--SECONDARY);
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+}
+.OwnerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  box-shadow: 0 0 5px #ccc;
+  margin-bottom: 64px;
+  color: #282c34;
+  background-color: rgba(255, 255, 255, 0.346);
+}
+
+.OwnerForm button {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #282c34;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.OwnerForm label {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+.OwnerForm input {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-left: 32px;
+}
+
+.FidelityPoints {
+  font-size: 14pt;
+  font-weight: 600;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #282c34;
+  padding: 16px;
+  color: white;
+}
