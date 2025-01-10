@@ -2,9 +2,11 @@
 
 import { useStore,useSelector } from "react-redux";
 
-import {addVoucher} from '../app/store'
+// import {addVoucher} from '../app/store'
 
 import { isVoucherAvailable } from "../app/selector";
+
+import { cartSlice } from "./CartSlice";
 
 
 const Voucher = () => {
@@ -18,7 +20,7 @@ const Voucher = () => {
 
     function applyVoucher(){
 
-      store.dispatch(addVoucher({price:2}));
+      store.dispatch(cartSlice.actions.addVoucher({price:2}));
 
     }
 
