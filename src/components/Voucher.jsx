@@ -2,6 +2,8 @@
 
 import { useStore,useSelector } from "react-redux";
 
+import {addVoucher} from '../app/store'
+
 import { isVoucherAvailable } from "../app/selector";
 
 
@@ -10,15 +12,14 @@ const Voucher = () => {
     const store = useStore();
 
     const available = useSelector(isVoucherAvailable);
+
+    
    
 
     function applyVoucher(){
 
-      store.dispatch({
-          type:'APPLY_VOUCHER',
-          payload:{price:2}
-        }
-      )
+      store.dispatch(addVoucher({price:2}));
+
     }
 
 

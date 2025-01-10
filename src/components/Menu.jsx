@@ -2,9 +2,10 @@ import {useStore,useSelector} from "react-redux"
 
 import {useState,useEffect} from "react"
 
-import {PouletCroquant, SuperCremeux, DoubleCantal,Feijoada} from '../common/models'
-
 import { getSameProductQuantity } from "../app/selector"
+import { addProduct } from "../app/store"
+
+import {PouletCroquant, SuperCremeux, DoubleCantal,Feijoada} from '../common/models'
 
 import burger_img from '../assets/DoubleCantal.svg'
 
@@ -26,10 +27,7 @@ const Menu = () => {
   // Add to Cart Selected Product
   function addCart(item) {
 
-    store.dispatch(
-      {type:'ADD_PRODUCT',
-      payload:item}
-    )
+    store.dispatch(addProduct(item))
 
   }
 
