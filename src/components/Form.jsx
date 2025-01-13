@@ -2,6 +2,8 @@ import {useStore} from "react-redux"
 
 import Voucher from './Voucher.jsx'
 
+import { ownerSlice } from "./OwnerSlice";
+
 import {SuperCremeux,DoubleCantal,PouletCroquant,Feijoada} from '../common/models'
 
 
@@ -17,10 +19,13 @@ const Form = () => {
     let inputFirstNameValue = document.querySelector('#firstName').value;
 
 
-    store.dispatch({
-      type:'UPDATE_FIRSTNAME',
-      payload:inputFirstNameValue
-    })
+    // store.dispatch({
+    //   type:'UPDATE_FIRSTNAME',
+    //   payload:inputFirstNameValue
+    // })
+
+    
+    store.dispatch(ownerSlice.actions.updateName(inputFirstNameValue))
 
   }
 
