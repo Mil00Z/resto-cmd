@@ -16,7 +16,6 @@ const Voucher = () => {
     const available = useSelector(isVoucherAvailable);
 
     
-   
 
     function applyVoucher(){
 
