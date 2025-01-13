@@ -29,7 +29,7 @@ const Menu = () => {
   function addCart(item) {
 
     // store.dispatch(addProduct(item))
-
+   
     store.dispatch(cartSlice.actions.addProduct(item))
 
   }
