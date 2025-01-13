@@ -18,27 +18,45 @@ import { cartSlice } from '../components/CartSlice';
 export const updateName = createAction('UPDATE_FIRSTNAME');
 
 
+// const reducer = createReducer(state, (builder) => {
+  //   builder
+  //     .addCase(addProduct, (state, action) => {
+  //       const listWithNewProduct = [...state.list, action.payload];
+  //       return { ...state, list: listWithNewProduct };
+  //     })
+  //     .addCase(addVoucher, (state, action) => {
+  //       const withVoucherList = state.list.map(
+  //         (item) => (item.title === 'Super Crémeux' ? { ...item, price: action.payload.price } : item)
+  //       );
+  //       return { ...state, list: withVoucherList };
+  //     })
+  //     .addCase(removeProduct, (state, action) => {
+  //       const list = state.list.filter((item, index) => index !== action.payload);
+  //       return { ...state, list: list };
+  //     })
+  //     .addCase(updateName, (state, action) => {
+  //       const owner = { ...state.owner, firstName: action.payload };
+  //       return { ...state, owner };
+  //     });
+  // });
+  
 
-const reducer = createReducer(state, (builder) => {
-  builder
-    // .addCase(addProduct, (state, action) => {
-    //   const listWithNewProduct = [...state.list, action.payload];
-    //   return { ...state, list: listWithNewProduct };
-    // })
-    // .addCase(addVoucher, (state, action) => {
-    //   const withVoucherList = state.list.map(
-    //     (item) => (item.title === 'Super Crémeux' ? { ...item, price: action.payload.price } : item)
-    //   );
-    //   return { ...state, list: withVoucherList };
-    // })
-    // .addCase(removeProduct, (state, action) => {
-    //   const list = state.list.filter((item, index) => index !== action.payload);
-    //   return { ...state, list: list };
-    // })
-    .addCase(updateName, (state, action) => {
+
+const storeReducer = createReducer(state, (builder) => {
+  builder.addCase(updateName, (state, action) => {
       const owner = { ...state.owner, firstName: action.payload };
       return { ...state, owner };
     });
+});
+
+
+//Store Initialization
+export const store = configureStore({
+  preloadedState: state,
+  reducer: combineReducers({
+    owner:storeReducer,
+    list:cartSlice.reducer,
+  }),
 });
 
 
@@ -70,14 +88,7 @@ const reducer = createReducer(state, (builder) => {
 // }
 
 
-//Store Initialization
-export const store = configureStore({
-  preloadedState: state,
-  reducer: combineReducers({
-    owner:reducer,
-    list:cartSlice.reducer,
-  }),
-});
+
 
 
 
