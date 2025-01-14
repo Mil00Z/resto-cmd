@@ -3,6 +3,7 @@
   --SECONDARY: #fb7061;
 
   --button-spacing:10px;
+  --radius: 65px;
 }
 
 body {
@@ -31,9 +32,12 @@ body {
 }
 
 #header, #owner{
+  --radius: 65px;
   position: fixed;
   bottom: 0;
-  width:100%;
+  right: 0;
+  padding: 1rem;
+  /* width:100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +45,7 @@ body {
   color: black;
   background-color: white;
   font-size: 1.5rem;
+  border-radius: var(--radius) 0 0 var(--radius);
 }
 
 .Aside {
@@ -141,6 +146,24 @@ body {
   width: 80%;
   display: flex;
   min-height: 70vh;
+}
+
+.row-products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.row-products > * {
+  --radius:15px;
+  padding:.55rem;
+  border-radius:var(--radius);
+  border: 2px solid white;
+}
+.btn.remove{
+  margin-inline:.5rem;
+  background:crimson;
 }
 
 .Selection {
