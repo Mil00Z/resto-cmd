@@ -1,14 +1,19 @@
 import {useStore,useSelector} from "react-redux"
+import { createEntityAdapter } from '@reduxjs/toolkit'
 // import {useState,useEffect} from "react"
 
 import  {getProductList} from "../app/selector.js"
 
 
-const Products = () => {
+const Cart = () => {
 
   const store = useStore();
 
   const list = useSelector(getProductList);
+
+  // const entity = createEntityAdapter();
+
+
 
   
   //Total de la commande
@@ -44,8 +49,8 @@ const Products = () => {
 
     
     </section>
-  
+      
   </>
   )
 }
-export default Products
+export default Cart
