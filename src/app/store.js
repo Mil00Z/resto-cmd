@@ -1,4 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import {thunk} from 'redux-thunk';
 
 import { cartSlice } from '../components/CartSlice';
 import { ownerSlice } from '../components/OwnerSlice';
@@ -21,6 +22,12 @@ export const store = configureStore({
     list:cartSlice.reducer,
     notes:notesSlice.reducer
   }),
+  middleware : (getDefaultMiddleware) => getDefaultMiddleware().prepend([
+    (store) => (next) => (action) => {
+      console.log('Middleware', action);
+      next(action);
+    }
+  ]).concat(thunk)
 });
 
 
