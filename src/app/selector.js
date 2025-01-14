@@ -1,3 +1,5 @@
+import * as ProductList from '../common/models';
+
 export function getProductList(state) {
 
   return state?.list
@@ -10,20 +12,17 @@ export function getTotalOrder(state) {
 
 }
 
-
-
 export function isVoucherAvailable(state){ 
 
   return getProductList(state).find((product) => product.title === "Super Crémeux")
 }
 
 
-export function getSameProductQuantity(name) {
-
- let filter = getProductList(state).filter((product) => product.title === name);
+export const getQuantityProductPerName = (name) => (state) => getProductList(state).filter((product) => product.title === name).length
 
 
-  console.log(filter.length)
-
-}
+export const getListQuantityProductPerName = (state) => Object.values(ProductList).map((product) => ({
+    title: product.title,
+    quantity: getQuantityProductPerName(product.title)(state),
+}));
 
