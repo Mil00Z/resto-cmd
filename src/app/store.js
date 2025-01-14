@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import { cartSlice } from '../components/CartSlice';
 import { ownerSlice } from '../components/OwnerSlice';
+import { notesSlice } from '../components/NotesSlice';
 
 
 // Initial Flow
@@ -18,6 +19,7 @@ export const store = configureStore({
   reducer: combineReducers({
     owner:ownerSlice.reducer,
     list:cartSlice.reducer,
+    notes:notesSlice.reducer
   }),
 });
 

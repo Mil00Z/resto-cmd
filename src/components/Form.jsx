@@ -39,7 +39,7 @@ const Form = () => {
       </form>
 
       <div id="selects">
-{/* 
+        {/* 
         <button className="orderButton" data-id="PouletCroquant">Poulet Croquant</button>
         <button className="orderButton" data-id="DoubleCantal">Double Cantal</button>
         <button className="orderButton" data-id="SuperCremeux">Super Cremeux</button> */}
@@ -63,7 +63,7 @@ const Form = () => {
       </div>
 
       <Voucher />
-      {/* <div id="command"></div> */}
+     
     </>
   )
     
