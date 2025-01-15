@@ -24,7 +24,7 @@ export const store = configureStore({
   }),
   middleware : (getDefaultMiddleware) => getDefaultMiddleware().prepend([
     (store) => (next) => (action) => {
-      console.log('Middleware', action);
+      // console.log('Middleware', action);
       next(action);
     }
   ]).concat(thunk)

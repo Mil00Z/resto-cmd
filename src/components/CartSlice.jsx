@@ -49,11 +49,34 @@ import * as ProductList from '../common/models';
 // }
 
 
+export const resetOrderThunk = createAsyncThunk('cart/resetOrderThunk', async (thunkApi) => {
+  
+return new Promise((resolve,reject) => {
+
+  setTimeout(()=>{
+
+    console.log('thunk log 1',thunkApi)
+
+    if(window.confirm('attention, vous voulez annuler votre commande ?')){
+
+      console.log('thunk log 2',thunkApi)
+
+      reject()
+
+    }
+
+  },10000);
+
+  })
+
+});
+
 
 
 export const addProductThunk = createAsyncThunk('cart/addProductThunk', async (product,thunkApi) => {
 
  thunkApi.dispatch(cartSlice.actions.addProduct(product))
+ thunkApi.dispatch(resetOrderThunk());
 
  return new Promise((resolve,reject) => {
 
@@ -112,21 +135,28 @@ export const cartSlice = createSlice({
     addVoucher : (state,action) => {
       const withVoucherList = state.map((item) => (item.title === 'Super Crémeux' ? { ...item, price: action.payload.price } : item));
       return withVoucherList ;
+    },
+    clearCart : (state) => {
+      console.log('dégage manouche',state)
+      return [];
     }
-
   },
+   
   extraReducers: (builder) => {
     builder
-      .addCase(addProductThunk.fulfilled, (state, action) => {
+      .addCase(addProductThunk.fulfilled, (state) => {
         const specialOffer = ProductList.DoubleCantal;
             return [...state, {...specialOffer, price:8}]
       })
-      .addCase(addProductThunk.rejected, (state, action) => {
+      .addCase(addProductThunk.rejected, (state) => {
         console.log('rejected');
         return [...state]
       })
-      .addCase(addProductThunk.pending, (state, action) => {
-        console.log('pending');
+      .addCase(addProductThunk.pending, () => {
+        // console.log('pending');
+      });
+      builder.addCase(resetOrderThunk.rejected, () => {
+        return [];
       })
   }
 })

@@ -2,7 +2,7 @@ import {useStore,useSelector,useDispatch} from "react-redux"
 
 import { getListQuantityProductPerName } from "../app/selector"
 // import { addProduct } from "../app/store"
-import { cartSlice,addProductThunk } from "./CartSlice"
+import { cartSlice,addProductThunk, resetOrderThunk } from "./CartSlice"
 
 import {PouletCroquant, SuperCremeux, DoubleCantal,Feijoada} from '../common/models'
 
