@@ -1,8 +1,10 @@
 import {useStore,useSelector,useDispatch} from "react-redux"
 
-import { getListQuantityProductPerName } from "../app/selector"
+import { getListQuantityProductPerName, getProductUnavailable } from "../app/selector"
 // import { addProduct } from "../app/store"
-import { cartSlice,addProductThunk, resetOrderThunk } from "./CartSlice"
+
+import { addProductThunk} from "./CartSlice"
+import {getUnavailableThunk} from "./MenuSlice"
 
 import {PouletCroquant, SuperCremeux, DoubleCantal,Feijoada} from '../common/models'
 
@@ -18,12 +20,14 @@ const Menu = () => {
   // const store = useStore();
   const dispatch = useDispatch();
 
+  const unavailableProducts = useSelector(getProductUnavailable);
+
+  
+
   // const testing = useSelector(getSameProductQuantity(store.getState(),'Double Cantal'));
 
   // console.log(testing);
 
-
-  
 
 
   // Add to Cart Selected Product
@@ -35,7 +39,11 @@ const Menu = () => {
 
     // dispatch(cartSlice.actions.addProduct(item))
 
+
     dispatch(addProductThunk(item))
+
+    dispatch(getUnavailableThunk());
+
 
   }
 
@@ -48,14 +56,21 @@ return (
         <img src={burger_img} alt={`photo du produit - ${item.title}`} />
 
         {item.title}
-{/* 
-        {count > 0 ? (<span className="count">{count}</span>) : null} */}
+
+        {unavailableProducts?.includes(item.title) ? (<span className="debeug">Indisponible</span>)  : ('')
+        }
+
 
       </div>
+
     ))
   ) : (
     <div>Aucun produit</div>
   )}
+
+  
+
+
     </>
   ) 
 

@@ -26,3 +26,5 @@ export const getListQuantityProductPerName = (state) => Object.values(ProductLis
     quantity: getQuantityProductPerName(product.title)(state),
 }));
 
+export const getProductUnavailable = (state) => state?.menu?.unavailable;
+

@@ -108,6 +108,15 @@ body {
   font-size: 24pt;
   line-height: 32px;
   cursor: pointer;
+  overflow: hidden;
+}
+.ProductCard > .debeug{
+  padding:.5rem;
+  background:crimson;
+  font-size:1.2rem;
+  position: absolute;
+  top:0;
+  right:0;
 }
 
 .ProductCard:hover {

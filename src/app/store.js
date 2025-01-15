@@ -4,12 +4,12 @@ import {thunk} from 'redux-thunk';
 import { cartSlice } from '../components/CartSlice';
 import { ownerSlice } from '../components/OwnerSlice';
 import { notesSlice } from '../components/NotesSlice';
+import { menuSlice } from '../components/MenuSlice';
 
 
 // Initial Flow
 let state = {
   owner:{},
-  value:null,
   list:[],
 };
 
@@ -20,7 +20,8 @@ export const store = configureStore({
   reducer: combineReducers({
     owner:ownerSlice.reducer,
     list:cartSlice.reducer,
-    notes:notesSlice.reducer
+    notes:notesSlice.reducer,
+    menu:menuSlice.reducer
   }),
   middleware : (getDefaultMiddleware) => getDefaultMiddleware().prepend([
     (store) => (next) => (action) => {
