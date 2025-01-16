@@ -6,6 +6,9 @@ import { ownerSlice } from '../components/OwnerSlice';
 import { notesSlice } from '../components/NotesSlice';
 import { menuSlice } from '../components/MenuSlice';
 
+// import { fidelityApi } from '../datas/FidelityApi';
+import { api } from '../datas/FidelityApi';
+
 
 // Initial Flow
 let state = {
@@ -21,14 +24,10 @@ export const store = configureStore({
     owner:ownerSlice.reducer,
     list:cartSlice.reducer,
     notes:notesSlice.reducer,
-    menu:menuSlice.reducer
+    menu:menuSlice.reducer,
+    [api.reducerPath] : api.reducer
   }),
-  middleware : (getDefaultMiddleware) => getDefaultMiddleware().prepend([
-    (store) => (next) => (action) => {
-      // console.log('Middleware', action);
-      next(action);
-    }
-  ]).concat(thunk)
+  middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware).concat(thunk)
 });
 
 

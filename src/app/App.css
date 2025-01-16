@@ -269,12 +269,26 @@ body {
   margin-left: 32px;
 }
 
+.fidelity{
+
+width:500px;
+background:black;
+padding:1rem;
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+}
+.fidelity > h2 {
+
+
+}
 .FidelityPoints {
   font-size: 14pt;
   font-weight: 600;
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
+  /* position: fixed;
+  bottom: 0px; */
+  width: fit-content;
   display: flex;
   justify-content: center;
   background-color: #282c34;

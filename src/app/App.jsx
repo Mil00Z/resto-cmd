@@ -4,6 +4,7 @@ import Form from '../components/Form.jsx'
 import Cart from '../components/Cart.jsx'
 import Basket from '../components/Basket.jsx'
 import Notes from '../components/Notes.jsx'
+import Fidelity from '../components/Fidelity.jsx'
 
 
 import '../app/App.css'
@@ -26,6 +27,7 @@ function App() {
         <Cart/>
         <Notes/>
       </div>
+      <Fidelity/>
     </>
   )
 }
