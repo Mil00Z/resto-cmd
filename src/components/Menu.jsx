@@ -1,3 +1,5 @@
+import {useEffect} from "react"
+
 import {useStore,useSelector,useDispatch} from "react-redux"
 
 import { getListQuantityProductPerName, getProductUnavailable } from "../app/selector"
@@ -42,10 +44,15 @@ const Menu = () => {
 
     dispatch(addProductThunk(item))
 
+    // dispatch(getUnavailableThunk());
+  }
+
+
+  useEffect(() => {
+
     dispatch(getUnavailableThunk());
 
-
-  }
+  },[])
 
 
 return (
